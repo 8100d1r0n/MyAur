@@ -7,7 +7,6 @@ arch=("i686" "x86_64")
 license=("GPL")
 url="http://sourceforge.net/projects/gcompmgr/"
 depends=("gtkmm")
-makedepends=("autoconf" "automake" "libtool")
 source=(http://sourceforge.net/projects/gcompmgr/files/gcompmgr/$pkgname-$pkgver/$pkgname-$pkgver.tar.gz)
 _patch=(../gcompmgr-0.21-9.patch)
 source=(${source[@]} ${_patch[@]})
