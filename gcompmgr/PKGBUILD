@@ -1,0 +1,32 @@
+# Maintainer: Blood iron  <8100d1r0n@riseup.net>
+pkgname=gcompmgr
+pkgver=0.21
+pkgrel=9
+pkgdesc="Graphical front end for xcompmgr"
+arch=("i686" "x86_64")
+license=("GPL")
+url="http://sourceforge.net/projects/gcompmgr/"
+depends=("gtkmm")
+makedepends=("autoconf" "automake" "libtool")
+source=(http://sourceforge.net/projects/gcompmgr/files/gcompmgr/$pkgname-$pkgver/$pkgname-$pkgver.tar.gz)
+_patch=(../gcompmgr-0.21-9.patch)
+source=(${source[@]} ${_patch[@]})
+
+build() {
+  	cd $srcdir/$pkgname-$pkgver/src
+
+  	for p in "${_patch[@]}"; do
+    		echo "=> $p"
+    		patch < ../$p || return 1
+  	done
+
+	cd $srcdir/$pkgname-$pkgver
+	CXX="g++  -std=c++11 -lX11 -O2 -Wl,--build-id=none"  ./autogen.sh --prefix=/usr
+}
+package() {
+	cd $srcdir/$pkgname-$pkgver/src
+	install -m755 -D gcompmgr $pkgdir/usr/bin/$pkgname
+    install -m644 -D ../README $pkgdir/usr/share/doc/$pkgname/README
+}
+sha256sums=('50b68e830248657a1123526b53191de024475b96679361bcff6f404c26548fa3'
+            'd1d4b4f2e941c9459085daa4e8f1a9f350d44f612aeb405d415efd4de779eda7')
