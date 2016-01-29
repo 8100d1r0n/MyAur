@@ -1,7 +1,7 @@
-# Maintainer: Blood iron  <8100d1r0n@riseup.net>
+# Maintainer: 8100d1r0n (echo "ODEwMGQxcjBuKGF0KXJpc2V1cChkb3QpbmV0Cg=="|base64 -d)
 pkgname=archlinuxinfo
 pkgver=2
-pkgrel=4
+pkgrel=5
 pkgdesc="C program to display system infomation alongside the Arch Linux logo"
 arch=('i686' 'x86_64')
 url="https://github.com/8100d1r0n/logo"
