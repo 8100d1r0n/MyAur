@@ -1,4 +1,5 @@
 # Maintainer: 8100d1r0n (echo "ODEwMGQxcjBuKGF0KXJpc2V1cChkb3QpbmV0Cg=="|base64 -d)
+# $Id$
 pkgname=gcompmgr
 pkgver=0.21
 pkgrel=9
@@ -20,7 +21,7 @@ build() {
 	    #sed -i 's|gedit|leafpad|g' window1.cc
 
 	    cd $srcdir/$pkgname-$pkgver
-	    CXX="g++  -std=c++11 -lX11 -O2 -Wl,--build-id=none"  ./autogen.sh --prefix=/usr
+	    CXX="g++  -std=c++11 -lX11 -O2"  ./autogen.sh --prefix=/usr
 }
 package() {
     	cd $srcdir/$pkgname-$pkgver/src
